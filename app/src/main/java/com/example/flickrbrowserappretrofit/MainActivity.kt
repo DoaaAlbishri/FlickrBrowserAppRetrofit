@@ -54,7 +54,14 @@ class MainActivity : AppCompatActivity() {
         val progressDialog = ProgressDialog(this)
         progressDialog.setMessage("Please wait")
         progressDialog.show()
+        val call: Call<ImageDetails?>? = apiInterface!!.getPhoto(searchWord)
+    //another ways
+        /*
         val call: Call<ImageDetails?>? = apiInterface!!.getPhoto("flickr.photos.search","9cf6eae618774b19d20c9c0d747c820a",searchWord,"json")
+        */
+        /*
+        val call: Call<ImageDetails?>? = apiInterface!!.getPhoto("flickr.photos.search","9cf6eae618774b19d20c9c0d747c820a",searchWord,"json","1")
+         */
         call?.enqueue(object : Callback<ImageDetails?> {
             override fun onResponse(
                 call: Call<ImageDetails?>,
